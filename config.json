@@ -1,0 +1,15 @@
+[
+  {
+    "name":"player",
+    "pm2":"50215_timo-player",
+    "version": {
+      "local":"/opt/timo/timo-player/package.json",
+      "repo":"https://raw.githubusercontent.com/TeamTIMO/timo-player/master/package.json"
+    },
+    "config":"/opt/timo/timo-player/config.json"
+  },
+  {
+    "name":"io",
+    "pm2":"50218_timo-player"
+  }
+]

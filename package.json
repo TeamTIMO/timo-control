@@ -1,0 +1,16 @@
+{
+  "name": "timo-control",
+  "version": "0.0.1",
+  "private": true,
+  "bin": {
+    "timo":"./cli.js"
+  },
+  "dependencies": {
+    "commander":"*",
+    "pm2":"*",
+    "console.table":"*"
+  },
+  "devDependencies": {
+    
+  }
+}
