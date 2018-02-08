@@ -8,7 +8,8 @@
   "dependencies": {
     "commander":"*",
     "pm2":"*",
-    "console.table":"*"
+    "console.table":"*",
+    "request":"*"
   },
   "devDependencies": {
     

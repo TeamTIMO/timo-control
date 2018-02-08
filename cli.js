@@ -3,6 +3,7 @@
 var config = require('./config.json')
 var pack = require('./package.json')
 var pm2 = require('pm2')
+var request = require('request')
 const cTable = require('console.table') // eslint-disable-line
 var program = require('commander')
 
@@ -55,9 +56,27 @@ program
   })
 
 program
-  .command('check <service>')
+  .command('check [service]')
   .action(function (service) {
-    // TODO: Returns local and online version. Uses lib-check
+    if (service === 'all' || service === '') {
+      // TODO: for all
+    } else {
+      var localVersion = require(config[service].version.local).version
+      request(config[service].version.repo, function (error, response, body) {
+        if (error) {
+          console.error(error)
+          process.exit(2)
+        } else {
+          var repoVersion = body.version
+        }
+        var version = [{
+          name: service,
+          local: localVersion,
+          repo: repoVersion
+        }]
+        console.table('TIMO Version', version)
+      })
+    }
   })
 
 program
